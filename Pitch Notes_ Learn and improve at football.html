@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pitch Notes – Learn and improve at football</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;800&family=Source+Serif+4:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--grass:#1f4d2b;--grass2:#2a6139;--chalk:#f5f7f2;--bg:#eef3e8;--ink:#15221a;--mute:#4d5e53;--kit:#f2c230;--card:#fbfdf8;--line:#c9d6c0;
+--d:'Bricolage Grotesque','Arial Narrow',Arial,sans-serif;--b:'Source Serif 4',Georgia,serif;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1a13;--ink:#e8efe4;--mute:#a3b3a8;--card:#16261c;--line:#2c4434;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0f1a13;--ink:#e8efe4;--mute:#a3b3a8;--card:#16261c;--line:#2c4434;color-scheme:dark}
+*,*:before,*:after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.65 var(--b)}
+h1,h2,h3{font-family:var(--d);line-height:1.05;margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--kit);outline-offset:2px}
+.wrap{max-width:1000px;margin:0 auto;padding:0 20px}
+nav{display:flex;gap:18px;flex-wrap:wrap;justify-content:space-between;align-items:center;padding:16px 0;font-family:var(--d);font-weight:500}
+nav .links{display:flex;gap:18px;flex-wrap:wrap}
+nav a{text-decoration:none}nav a:hover{text-decoration:underline}
+.hero{background:var(--grass);color:var(--chalk);position:relative;overflow:hidden}
+.hero .wrap{padding-top:8px;padding-bottom:70px}
+.hero h1{font-size:clamp(2.6rem,9vw,6rem);font-weight:800;max-width:11ch;letter-spacing:-.02em;margin-top:40px}
+.hero p{max-width:34em;font-size:1.2rem;opacity:.92}
+.btn{display:inline-block;background:var(--kit);color:#15221a;font-family:var(--d);font-weight:800;padding:13px 22px;border-radius:999px;text-decoration:none;margin-top:10px}
+.stripes{position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 80px,rgba(255,255,255,.04) 80px 160px);pointer-events:none}
+.circle{position:absolute;right:-120px;bottom:-120px;width:380px;height:380px;border:4px solid rgba(245,247,242,.25);border-radius:50%}
+section{padding:64px 0}
+h2{font-size:clamp(1.9rem,5vw,3rem);font-weight:800;margin-bottom:14px}
+.lead{max-width:40em;color:var(--mute)}
+.pitchgrid{display:grid;grid-template-columns:1.1fr 1fr;gap:28px;margin-top:28px;align-items:start}
+.pitch{background:var(--grass2);border-radius:14px;padding:8px}
+.pitch svg{display:block;width:100%;height:auto}
+.pl{cursor:pointer;fill:var(--chalk);stroke:#15221a;stroke-width:2}
+.pl:hover,.pl.on{fill:var(--kit)}
+.pl:focus-visible{outline:none;stroke:var(--kit);stroke-width:5}
+.info{background:var(--card);border:2px solid var(--line);border-radius:10px;padding:20px 22px;min-height:230px}
+.info h3{font-size:1.6rem;margin-bottom:8px}
+.info p{margin:0 0 10px}
+.rules{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:0;margin-top:26px;border-top:3px solid var(--ink)}
+.rules div{padding:18px 20px 18px 0}
+.rules h3{font-size:1.25rem;margin-bottom:6px}
+.rules p{margin:0;color:var(--mute);font-size:1rem}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:26px 0 16px}
+.tabs button{font:600 1rem var(--d);padding:10px 18px;border-radius:999px;border:2px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--ink);color:var(--bg)}
+.drill{background:var(--card);border:2px solid var(--line);border-radius:10px;padding:22px 24px}
+.drill h3{font-size:1.5rem;margin-bottom:6px}
+.drill ul{padding-left:1.2em;margin:10px 0 0}.drill li{margin-bottom:8px}
+.drill .why{color:var(--mute);margin:0}
+.tablewrap{overflow-x:auto;margin-top:24px}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:1rem}
+th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--d);font-weight:800}
+.rest{color:var(--mute)}
+.tips{columns:2;column-gap:36px;margin-top:22px}
+.tips p{break-inside:avoid;margin:0 0 18px}
+.tips b{font-family:var(--d);font-size:1.1rem}
+footer{background:var(--grass);color:var(--chalk);padding:30px 0;font-size:.95rem}
+@media (max-width:760px){.pitchgrid{grid-template-columns:1fr}.tips{columns:1}section{padding:48px 0}body{font-size:17px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header class="hero">
+<div class="stripes"></div><div class="circle"></div>
+<div class="wrap">
+<nav><strong>Pitch Notes</strong><div class="links"><a href="#positions">Positions</a><a href="#rules">Rules</a><a href="#skills">Skills</a><a href="#plan">Weekly plan</a><a href="#tips">Match tips</a></div></nav>
+<h1>Play the game. Then play it better.</h1>
+<p>A plain-English guide to football (soccer): how a match works, what each position does, and the drills that make you improve fastest.</p>
+<a class="btn" href="#positions">Start with the pitch</a>
+</div>
+</header>
+
+<main>
+<section id="positions"><div class="wrap">
+<h2>Know where everyone plays</h2>
+<p class="lead">Eleven players per side, one goalkeeper and ten outfield. Tap a player on this 4-3-3 to see what the role asks of you.</p>
+<div class="pitchgrid">
+<div class="pitch">
+<svg viewBox="0 0 400 520" role="group" aria-label="Football pitch with a 4-3-3 formation">
+<g fill="none" stroke="#f5f7f2" stroke-width="2" opacity=".8"><rect x="14" y="14" width="372" height="492"/><line x1="14" y1="260" x2="386" y2="260"/><circle cx="200" cy="260" r="50"/><rect x="100" y="14" width="200" height="80"/><rect x="150" y="14" width="100" height="30"/><rect x="100" y="426" width="200" height="80"/><rect x="150" y="476" width="100" height="30"/></g>
+<g id="players"></g>
+</svg>
+</div>
+<div class="info" id="info" aria-live="polite"></div>
+</div>
+</div></section>
+
+<section id="rules" style="background:var(--card)"><div class="wrap">
+<h2>The rules that matter most</h2>
+<p class="lead">You can start playing with these six.</p>
+<div class="rules">
+<div><h3>The goal</h3><p>Score more than the other team. The whole ball must cross the line between the posts and under the bar.</p></div>
+<div><h3>Match length</h3><p>Two halves of 45 minutes in the adult game. Youth and casual games are often shorter.</p></div>
+<div><h3>Hands</h3><p>Only the goalkeeper, inside their own box, may handle the ball. Everyone else uses feet, body and head.</p></div>
+<div><h3>Offside</h3><p>When a teammate passes, you can’t be nearer the goal line than the ball and the second-last defender, unless you’re in your own half.</p></div>
+<div><h3>Fouls</h3><p>Tripping, pushing or holding gives a free kick. A foul inside the defender’s box gives a penalty.</p></div>
+<div><h3>Restarts</h3><p>Throw-in when it leaves the side, goal kick or corner when it leaves the end, depending on who touched it last.</p></div>
+</div>
+</div></section>
+
+<section id="skills"><div class="wrap">
+<h2>Five skills, five drills</h2>
+<p class="lead">Short, focused practice beats long, tired practice. Pick a skill and try its drill.</p>
+<div class="tabs" role="tablist" id="tabs"></div>
+<div class="drill" id="drill" role="tabpanel" aria-live="polite"></div>
+</div></section>
+
+<section id="plan" style="background:var(--card)"><div class="wrap">
+<h2>A simple week of training</h2>
+<p class="lead">About 45 minutes a session, four days a week. Add your team practice and matches on top.</p>
+<div class="tablewrap"><table>
+<thead><tr><th>Day</th><th>Focus</th><th>What to do</th></tr></thead>
+<tbody>
+<tr><td>Monday</td><td>First touch and passing</td><td>10 min juggling, 15 min wall passing, 15 min receiving on the move</td></tr>
+<tr><td>Tuesday</td><td class="rest">Rest or easy walk</td><td class="rest">Stretch and sleep well</td></tr>
+<tr><td>Wednesday</td><td>Dribbling and speed</td><td>Cone weaving, 1v1 moves, 6 sprints of 20 m with full rest between</td></tr>
+<tr><td>Thursday</td><td>Shooting</td><td>Strike 30 shots from different angles, both feet, aiming at corners</td></tr>
+<tr><td>Friday</td><td class="rest">Rest</td><td class="rest">Light mobility work</td></tr>
+<tr><td>Saturday</td><td>Play a game</td><td>Small-sided or full match. Apply what you practised</td></tr>
+<tr><td>Sunday</td><td>Fitness and review</td><td>Easy 20-minute run, then think about what worked in the game</td></tr>
+</tbody></table></div>
+</div></section>
+
+<section id="tips"><div class="wrap">
+<h2>Habits that make you better in matches</h2>
+<div class="tips">
+<p><b>Scan before the ball arrives.</b> Look over your shoulder two or three times. Players who know where space is play faster.</p>
+<p><b>Use both feet.</b> Spend a third of every drill on your weaker foot. It becomes a real weapon within weeks.</p>
+<p><b>Move after you pass.</b> Passing and standing still blocks your team. Pass, then run into a new space.</p>
+<p><b>Keep it simple under pressure.</b> A short, safe pass is better than a risky dribble in your own half.</p>
+<p><b>Talk constantly.</b> Call for the ball, warn teammates about opponents behind them, and shout “time” when they’re free.</p>
+<p><b>Watch good players.</b> Follow one player in your position for a whole match and note where they run without the ball.</p>
+<p><b>Recover well.</b> Drink water, eat protein and carbohydrates after sessions, and sleep eight hours or more.</p>
+<p><b>Play lots of small games.</b> Three-a-side gives you many more touches than a full pitch.</p>
+</div>
+</div></section>
+</main>
+
+<footer><div class="wrap">Pitch Notes is a general guide. If you’re returning from injury or training hard, check with a coach or doctor first.</div></footer>
+
+<script>
+var roles={
+GK:{t:"Goalkeeper",x:200,y:470,d:"The last line of defence and the only player who can use hands, inside the box. Work on positioning, catching, and starting attacks with accurate throws and kicks. Talk loudly to organise the defence."},
+LB:{t:"Left back",x:60,y:380,d:"Defends the left side and overlaps to support attacks. You need stamina, good 1v1 defending and accurate crosses."},
+LCB:{t:"Centre back (left)",x:140,y:400,d:"Wins headers, blocks shots and stops forwards turning. Stay compact with your partner, and pass calmly out of defence."},
+RCB:{t:"Centre back (right)",x:260,y:400,d:"Same job as your partner: win aerial duels, read danger early and keep the back line together."},
+RB:{t:"Right back",x:340,y:380,d:"Defends the right side and pushes forward when safe. Track the winger, then sprint up to overlap."},
+CDM:{t:"Defensive midfielder",x:200,y:320,d:"Shields the defence, breaks up attacks and starts moves with short passes. Awareness and positioning matter most."},
+LCM:{t:"Central midfielder (left)",x:110,y:260,d:"Links defence and attack. Receive on the half-turn, pass forward quickly, and run into the box late."},
+RCM:{t:"Central midfielder (right)",x:290,y:260,d:"The engine of the team. Cover lots of ground, win second balls and keep possession moving."},
+LW:{t:"Left winger",x:70,y:130,d:"Stretches the defence wide. Beat your marker with pace or skill, then cross or cut inside to shoot."},
+ST:{t:"Striker",x:200,y:110,d:"Scores the goals. Make runs behind defenders, hold the ball up under pressure and finish with either foot."},
+RW:{t:"Right winger",x:330,y:130,d:"Creates width and chances. Run at defenders, track back when the team loses the ball, and track the far post for crosses."}
+};
+var g=document.getElementById('players'),info=document.getElementById('info');
+function show(k){var r=roles[k];info.innerHTML='<h3>'+r.t+'</h3><p>'+r.d+'</p>';
+document.querySelectorAll('.pl').forEach(function(c){c.classList.toggle('on',c.dataset.k===k)})}
+Object.keys(roles).forEach(function(k){var r=roles[k];
+var c=document.createElementNS('http://www.w3.org/2000/svg','circle');
+c.setAttribute('cx',r.x);c.setAttribute('cy',r.y);c.setAttribute('r',17);c.setAttribute('class','pl');
+c.setAttribute('tabindex','0');c.setAttribute('role','button');c.setAttribute('aria-label',r.t);c.dataset.k=k;
+c.addEventListener('click',function(){show(k)});
+c.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();show(k)}});
+g.appendChild(c)});
+show('ST');
+
+var skills=[
+{n:"Passing",w:"Good passing keeps possession and creates chances.",l:["Stand 10 m from a wall or partner.","Pass with the inside of your foot, locking your ankle and following through.","Do 50 passes with each foot, then add a first-time pass every second touch.","Progress to 20 m, using the laces for longer passes."]},
+{n:"First touch",w:"A clean first touch buys you time and space.",l:["Throw or kick a ball against a wall, then control it with one touch.","Cushion it by pulling your foot back on contact.","Aim to take it into space, not just stop it.","Add a defender-style jog behind you to simulate pressure."]},
+{n:"Dribbling",w:"Beating a defender 1v1 is one of the most useful skills.",l:["Set up 6 cones about 1.5 m apart.","Weave through using the inside and outside of both feet.","Keep your head up between touches.","Finish with a burst of speed out of the last cone. Do 8 runs."]},
+{n:"Shooting",w:"Accuracy first, power second.",l:["Place the ball 16 m from goal or a marked target.","Strike with laces, plant foot beside the ball, eyes on the ball.","Aim low into the corners, not at the keeper.","Take 10 shots with each foot, then 10 from a moving ball."]},
+{n:"Fitness",w:"Football is repeated sprints with short rests.",l:["Warm up with 5 minutes of easy jogging and dynamic stretches.","Sprint 20 m, walk back, repeat 8 times.","Follow with 2 sets of squats, lunges and planks.","Cool down and stretch your legs and hips."]}];
+var tabs=document.getElementById('tabs'),dr=document.getElementById('drill');
+function pick(i){var s=skills[i];
+tabs.querySelectorAll('button').forEach(function(b,j){b.setAttribute('aria-selected',j===i)});
+dr.innerHTML='<h3>'+s.n+' drill</h3><p class="why">'+s.w+'</p><ul>'+s.l.map(function(x){return'<li>'+x+'</li>'}).join('')+'</ul>'}
+skills.forEach(function(s,i){var b=document.createElement('button');b.type='button';b.textContent=s.n;b.setAttribute('role','tab');b.onclick=function(){pick(i)};tabs.appendChild(b)});
+pick(0);
+</script>
+</body>
+</html>
